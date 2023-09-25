@@ -2,7 +2,7 @@
 vim.cmd([[
   augroup eslint_autocmds
     autocmd!
-    autocmd BufWritePost * :silent! :EslintFixAll
+    autocmd BufWrite * :silent! :EslintFixAll
   augroup END
 ]])
 
@@ -10,14 +10,14 @@ vim.cmd([[
 vim.cmd([[
   augroup gofmt_autocmd
     autocmd!
-    autocmd BufWritePost *.go :silent! :!go fmt %
+    autocmd BufWrite *.go :silent! :!go fmt %
   augroup END
 ]])
 
 vim.cmd([[
   augroup phpcodestyle_autocmd
     autocmd!
-    autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+    autocmd BufWrite *.php silent! call PhpCsFixerFixFile()
   augroup END
 ]])
 

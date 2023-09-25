@@ -1,15 +1,18 @@
+
+-- sets the color and extra features
 function Coloring(color)
  color = color or 'nightfox'
- vim.api.nvim_set_hl(0,"Normal", {bg = "none"})
+ vim.api.nvim_set_hl(0,"Normal", {bg = "none", ctermbg="none"})
+ vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#4e75aa', bold = true })
 end
 
 -- Default options
 require('nightfox').setup({
-  options = {
+    options = {
     -- Compiled file's destination location
     compile_path = vim.fn.stdpath("cache") .. "/nightfox",
     compile_file_suffix = "_compiled", -- Compiled file suffix
-    transparent = false,     -- Disable setting background
+    transparent = true,     -- Disable setting background
     terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
     dim_inactive = false,    -- Non focused panes set to alternative background
     module_default = true,   -- Default enable value for modules
@@ -45,8 +48,9 @@ require('nightfox').setup({
   },
   palettes = {},
   specs = {},
-  groups = {},
-})
+  groups = {}
+  }
+)
 
 -- setup must be called before loading
 vim.cmd("colorscheme nightfox")

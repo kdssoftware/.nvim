@@ -91,4 +91,13 @@ use({
   end,
 })
 use 'simrat39/symbols-outline.nvim'
+ -- Markdown Preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    })
+ -- Background Transparent
+ use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 end)

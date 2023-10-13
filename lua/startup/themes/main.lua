@@ -5,7 +5,7 @@ local settings = {
         align = "center",
         fold_section = false,
         title = "Header",
-        margin = 5,
+        margin = 2,
         content = {
             "            ███▄                               ▄██              ",
             "            ██████                          ▄█████              ",
@@ -18,7 +18,6 @@ local settings = {
             "            ██     ▄███▀              ▀███▄     ██              ",
             "            █▀  ▄███▀████████████████████▀███▄   ▀              ",
             "              ███▀    ██████████████████    ▀███                ",
-            "            ███▀       ████████████████       ▀███              ",
             "             ▀███       █████████████▌       ███▀               ",
             "               ▀███▄     ▀██████████▀     ▄███▀                 ",
             "                  ███▄    ▀████████▀    ▄███                    ",
@@ -27,7 +26,6 @@ local settings = {
             "                        ▀███ ▐██  ███▀                          ",
             "                          ▀███▄▄███▀                            ",
             "                             ▀██▀                               ",
-            "                                                                ",
             "                                                                ",
             "███╗   ██╗██╗ ██████╗ ██╗  ██╗████████╗███████╗ ██████╗ ██╗  ██╗",
             "████╗  ██║██║██╔════╝ ██║  ██║╚══██╔══╝██╔════╝██╔═══██╗╚██╗██╔╝",
@@ -59,18 +57,6 @@ local settings = {
         default_color = "",
         oldfiles_amount = 0
     },
-    footer = {
-        type = "text",
-        oldfiles_directory = false,
-        align = "center",
-        fold_section = false,
-        title = "Footer",
-        margin = 5,
-        content = {"v0.9.2"},
-        highlight = "Number",
-        default_color = "",
-        oldfiles_amount = 0
-    },
     options = {
         mapping_keys = true,
         cursor_column = 0.5,
@@ -88,6 +74,6 @@ local settings = {
         ["<leader>pa"] = "<cmd>Telescope git_files<CR>"
     },
     colors = {background = "#1f2227", folded_section = "#56b6c2"},
-    parts = {"header", "body", "footer"}
+    parts = {"header", "body"}
 }
 return settings

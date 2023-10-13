@@ -10,7 +10,7 @@ vim.cmd([[
 vim.cmd([[
   augroup gofmt_autocmd
     autocmd!
-    autocmd BufWrite *.go :silent! :!go fmt %
+    autocmd BufWritePost *.go :silent! :!go fmt %
   augroup END
 ]])
 

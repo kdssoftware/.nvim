@@ -2,7 +2,7 @@
 vim.cmd([[
   augroup eslint_autocmds
     autocmd!
-    autocmd BufWrite * :silent! :EslintFixAll
+    autocmd BufWritePost * :silent! :EslintFixAll
   augroup END
 ]])
 
@@ -12,13 +12,13 @@ vim.cmd([[
     autocmd!
     autocmd BufWritePost *.go :silent! :!go fmt %
   augroup END
-]])
+ ]])
 
 -- Automatically fixes .php files on buffer write using phpcodestyle
 vim.cmd([[
   augroup phpcodestyle_autocmd
     autocmd!
-    autocmd BufWrite *.php silent! call PhpCsFixerFixFile()
+    autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
   augroup END
 ]])
 
@@ -26,7 +26,7 @@ vim.cmd([[
 vim.cmd([[
   augroup black_autocmd
     autocmd!
-    autocmd BufWrite *.py :silent! :!black %
+    autocmd BufWritePost *.py :silent! :!black %
   augroup END
 ]])
 
@@ -34,7 +34,7 @@ vim.cmd([[
 vim.cmd([[
   augroup luaformat_autocmd
     autocmd!
-    autocmd BufWrite *.lua :silent! :!lua-format -i %
+    autocmd BufWritePost *.lua :silent! :!lua-format -i %
   augroup END
 ]])
 
@@ -44,3 +44,28 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
+
+-- scrollbar.nvim plugin provides only two lua functions, show and clear. The following config is recommended.
+vim.cmd([[
+augroup ScrollbarInit
+  autocmd!
+  autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+augroup end
+    ]])
+
+-- https://github.com/ray-x/go.nvim
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function() require('go.format').goimport() end,
+    group = format_sync_grp
+})
+
+local format_sync_import = vim.api.nvim_create_augroup("GoImport", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function() require('go.format').goimport() end,
+    group = format_sync_import
+})

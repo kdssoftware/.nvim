@@ -10,3 +10,7 @@ A personal config using `nvim-tree` `nvim-outline` `telescope` `lsp-zero`, `noic
 Left side: nvim-tree
 Right side: nvim-outline
 Middle: telescope
+
+
+https://github.com/kdssoftware/.nvim/assets/10829524/5894efee-b287-4b3e-b3d1-1cceea808f93
+

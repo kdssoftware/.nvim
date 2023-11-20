@@ -26,8 +26,9 @@ local plugins = {
     'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-nvim-lua', 'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets', "nvim-tree/nvim-web-devicons",
     'subnut/nvim-ghost.nvim', 'stephpy/vim-php-cs-fixer',
-    'nvim-tree/nvim-web-devicons', "SmiteshP/nvim-navic",
-    'simrat39/symbols-outline.nvim', 'Bekaboo/deadcolumn.nvim', {
+    "simrat39/rust-tools.nvim", 'nvim-tree/nvim-web-devicons',
+    "SmiteshP/nvim-navic", 'simrat39/symbols-outline.nvim', "neoclide/coc.nvim",
+    'Bekaboo/deadcolumn.nvim', {
         'kdssoftware/lua-obfuscator.nvim',
         config = function() require("lua-obfuscator").setup() end
     }, {'VonHeikemen/lsp-zero.nvim', branch = 'v1.x'}, {
@@ -52,11 +53,6 @@ local plugins = {
             }
         end
     }, 'nvim-tree/nvim-tree.lua', {
-        "themaxmarchuk/tailwindcss-colors.nvim",
-        module = "tailwindcss-colors",
-        -- run the setup function after plugin is loaded 
-        config = function() require("tailwindcss-colors") end
-    }, {
         "akinsho/toggleterm.nvim",
         tag = '*',
         config = function() require("toggleterm").setup() end

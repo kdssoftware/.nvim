@@ -69,3 +69,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function() require('go.format').goimport() end,
     group = format_sync_import
 })
+
+vim.cmd([[ autocmd TermOpen * startinsert ]])
